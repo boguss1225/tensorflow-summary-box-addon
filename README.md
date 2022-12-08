@@ -52,7 +52,7 @@ export CUDA_VISIBLE_DEVICES=0 && python Object_detection_image_tf2.py
 ```
 
 ## If you want to adjust the table format
-Edit header at **“line 1140”**
+Edit header at [Line:1140](https://github.com/boguss1225/tensorflow-summary-box-addon/visualization_utils.py#L1140)
 ```python
   headers=["Class              ", "total%", "  Qty  "]
 ```
@@ -62,7 +62,7 @@ Or edit multiplier of auto fontsize
 ```
 
 ## if you want to change font color and size
-Edit values at **"line 47~50"** of [visualization_utils.py](https://github.com/boguss1225/tensorflow-summary-box-addon/visualization_utils.py)
+Edit values at [Line:47~50](https://github.com/boguss1225/tensorflow-summary-box-addon/visualization_utils.py#L47-L50) of [visualization_utils.py](https://github.com/boguss1225/tensorflow-summary-box-addon/visualization_utils.py)
 ```python
 # Set config for summary box (HM)
 FontSIZE = 10
@@ -72,10 +72,12 @@ FontColor = 'white'
 ```
 
 ## Debug
-If font size is not working
+- If font size is not working, that might be case matter.. "a"rial
+```python
+# use whatever works
 font = ImageFont.truetype('Arial.ttf', Summary_FontSIZE)
-
 font = ImageFont.truetype(‘arial.ttf', Summary_FontSIZE)
+```
 
 ## Reference
 - https://pypi.org/project/tabulate/
