@@ -2,7 +2,7 @@
 # Tensorflow add-on summary box
 
 ## Introduction
-Add-on implementation for Tensorflow object detection. **Summary table** will be displayed at the right top corner of the inference image. Also, this add-on enable to save details of detection data (class, score(%), xmin, ymin, xmax, ymax) in csv format on the inference run. The fontsize can either be assigned manually in the code ([visualization_utils.py](https://github.com/boguss1225/tensorflow-summary-box-addon/visualization_utils.py#L47-L50)) or adjusted automatically based on the screen width (see line :[1128](https://github.com/boguss1225/tensorflow-summary-box-addon/visualization_utils.py#L1128)). This add-on will be useful to capture the summarized overview of the object detection at a glance. 😼
+Add-on implementation for Tensorflow object detection. **Summary table** will be displayed at the right top corner of the inference image. Also, this add-on enable to save details of detection data (class, score(%), xmin, ymin, xmax, ymax) in csv format on the inference run. The fontsize can either be assigned manually in the code ([visualization_utils.py](https://github.com/boguss1225/tensorflow-summary-box-addon/blob/main/visualization_utils.py#L47-L50)) or adjusted automatically based on the screen width (see line :[1128](https://github.com/boguss1225/tensorflow-summary-box-addon/blob/main/visualization_utils.py#L1128)). This add-on will be useful to capture the summarized overview of the object detection at a glance. 😼
 ![](screenshot.png)</br>
 
 ## How to Apply
@@ -23,7 +23,7 @@ python -m pip install .
 ```
 
 ## How to run
-Configure [Object_detection_image_tf2.py](https://github.com/boguss1225/tensorflow-summary-box-addon/Object_detection_image_tf2.py) file before run.
+Configure [Object_detection_image_tf2.py](https://github.com/boguss1225/tensorflow-summary-box-addon/blob/main/Object_detection_image_tf2.py) file before run.
 ```python
 # IMAGE_NAME
 IMAGE_NAME = ‘targe_image1.jpg'
@@ -42,7 +42,7 @@ PATH_TO_IMAGE = os.path.join(CWD_PATH,'test_images',IMAGE_NAME)
 NUM_CLASSES = 20
 ```
 
-Run [Object_detection_image_tf2.py](https://github.com/boguss1225/tensorflow-summary-box-addon/Object_detection_image_tf2.py) under models/research/object_detection/ 
+Run [Object_detection_image_tf2.py](https://github.com/boguss1225/tensorflow-summary-box-addon/blob/main/Object_detection_image_tf2.py) under models/research/object_detection/ 
 ```bash
 python Object_detection_image_tf2.py
 ```
@@ -52,7 +52,7 @@ export CUDA_VISIBLE_DEVICES=0 && python Object_detection_image_tf2.py
 ```
 
 ## If you want to adjust the table format
-Edit header at [Line:1140](https://github.com/boguss1225/tensorflow-summary-box-addon/visualization_utils.py#L1140)
+Edit header at [Line:1140](https://github.com/boguss1225/tensorflow-summary-box-addon/blob/main/visualization_utils.py#L1140)
 ```python
   headers=["Class              ", "total%", "  Qty  "]
 ```
@@ -62,7 +62,7 @@ Or edit multiplier of auto fontsize
 ```
 
 ## if you want to change font color and size
-Edit values at [Line:47~50](https://github.com/boguss1225/tensorflow-summary-box-addon/visualization_utils.py#L47-L50) of [visualization_utils.py](https://github.com/boguss1225/tensorflow-summary-box-addon/visualization_utils.py)
+Edit values at [Line:47~50](https://github.com/boguss1225/tensorflow-summary-box-addon/blob/main/visualization_utils.py#L47-L50) of [visualization_utils.py](https://github.com/boguss1225/tensorflow-summary-box-addon/blob/main/visualization_utils.py)
 ```python
 # Set config for summary box (HM)
 FontSIZE = 10
