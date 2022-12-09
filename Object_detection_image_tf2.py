@@ -18,20 +18,21 @@ for gpu in gpus:
 CWD_PATH = os.getcwd()
 
 # IMAGE_NAME
-IMAGE_NAME = 'test_img1.jpg'
+IMAGE_NAME = 'test_image.jpg'
 # IMAGE_SAVE_NAME
-IMAGE_SAVE_NAME = 'test_img1_result' # without extension
+IMAGE_SAVE_NAME = 'test_image_result' # without extension
 
 # Path to frozen detection graph .pb file, which contains the model that is used
 # for object detection.
-PATH_TO_PB = '/PATH/TO/pb/saved_model'
+PATH_TO_PB = '/PATH/TO/inference_graph/saved_model'
 # Path to label map file
 PATH_TO_LABELS = '/PATH/TO/labelmap.pbtxt'
 # Path to image
-PATH_TO_IMAGE = os.path.join(CWD_PATH,'test_images',IMAGE_NAME)
+PATH_TO_IMAGE_DIR = '/PATH/TO/test_dir'
+PATH_TO_IMAGE = os.path.join(PATH_TO_IMAGE_DIR,IMAGE_NAME)
 
 # Number of classes the object detector can identify
-NUM_CLASSES = 20 ###
+NUM_CLASSES = 11 ###
 
 # %%
 # Load the model
@@ -144,10 +145,10 @@ image_np_with_detections , csv_data = viz_utils.visualize_boxes_and_labels_on_im
     agnostic_mode=False)
 
 # Save the image
-cv2.imwrite(os.path.join(CWD_PATH, 'test_images',IMAGE_SAVE_NAME+".jpg"), image_np_with_detections) ###
+cv2.imwrite(os.path.join(PATH_TO_IMAGE_DIR,IMAGE_SAVE_NAME+".jpg"), image_np_with_detections) ###
 
 # Save the csv
-f = open(os.path.join(CWD_PATH, 'test_images',IMAGE_SAVE_NAME+".csv"), 'w')
+f = open(os.path.join(PATH_TO_IMAGE_DIR,IMAGE_SAVE_NAME+".csv"), 'w')
 f.write(csv_data)
 f.close()
 
