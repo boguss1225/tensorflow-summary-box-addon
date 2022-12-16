@@ -2,8 +2,8 @@
 # Tensorflow add-on summary box
 
 ## Introduction
-Add-on implementation for Tensorflow object detection. **Summary table** will be displayed at the right top corner of the inference image. Also, this add-on enable to save details of detection data (class, score(%), xmin, ymin, xmax, ymax) in csv format on the inference run. The fontsize can either be assigned manually in the code ([visualization_utils.py](https://github.com/boguss1225/tensorflow-summary-box-addon/blob/main/visualization_utils.py#L47-L50)) or adjusted automatically based on the screen width (see line :[1128](https://github.com/boguss1225/tensorflow-summary-box-addon/blob/main/visualization_utils.py#L1128)). This add-on will be useful to capture the summarized overview of the object detection at a glance. 😼
-![](screenshot.png)</br>
+Add-on implementation for Tensorflow object detection. **Summary table** will be displayed at the right top corner of the inference image. Also, this add-on enable to save details of detection data (class, score(%), xmin, ymin, xmax, ymax) in csv format on the inference run. The fontsize can either be assigned manually in the code ([visualization_utils.py](https://github.com/boguss1225/tensorflow-summary-box-addon/blob/main/visualization_utils.py#L47-L50)) or adjusted automatically based on the screen width (see line :[1128](https://github.com/boguss1225/tensorflow-summary-box-addon/blob/main/visualization_utils.py#L1128)). This add-on will be useful to capture the summarized overview of the object detection at a glance. 😼</br>
+![Picture](https://github.com/boguss1225/tensorflow-summary-box-addon/blob/main/screenshot/screenshot.png)</br>
 
 ## How to Apply
 
@@ -25,8 +25,11 @@ python -m pip install .
 ## How to run
 Configure [Object_detection_image_tf2.py](https://github.com/boguss1225/tensorflow-summary-box-addon/blob/main/Object_detection_image_tf2.py) file before run.
 ```python
+# Number of classes the object detector can identify
+NUM_CLASSES = 20
+
 # IMAGE_NAME
-IMAGE_NAME = ‘targe_image1.jpg'
+IMAGE_NAME = 'targe_image1.jpg'
 # IMAGE_SAVE_NAME
 IMAGE_SAVE_NAME = 'targe_image1_result'
 
@@ -36,10 +39,8 @@ PATH_TO_PB = '/PATH/TO/BE/CONFIGURED/PB_folder/saved_model'
 # Path to label map file
 PATH_TO_LABELS = '/PATH/TO/BE/CONFIGURED/labelmap.pbtxt'
 # Path to image
-PATH_TO_IMAGE = os.path.join(CWD_PATH,'test_images',IMAGE_NAME)
-
-# Number of classes the object detector can identify
-NUM_CLASSES = 20
+PATH_TO_IMAGE_DIR = '/PATH/TO/test_dir'
+PATH_TO_IMAGE = os.path.join(PATH_TO_IMAGE_DIR,IMAGE_NAME)
 ```
 
 Run [Object_detection_image_tf2.py](https://github.com/boguss1225/tensorflow-summary-box-addon/blob/main/Object_detection_image_tf2.py) under models/research/object_detection/ 
@@ -58,7 +59,7 @@ Edit header at [Line:1140](https://github.com/boguss1225/tensorflow-summary-box-
 ```
 Or edit multiplier of auto fontsize
 ```python
-    Summary_FontSIZE = int(im_width * 0.02)
+    Summary_FontSIZE = int(im_width * 0.05)
 ```
 
 ## if you want to change font color and size
