@@ -17,6 +17,12 @@ for gpu in gpus:
 # Grab path to current working directory
 CWD_PATH = os.getcwd()
 
+# CSV data flag
+SAVE_CSV_DATA = False
+
+# Number of classes the object detector can identify
+NUM_CLASSES = 11 ###
+
 # IMAGE_NAME
 IMAGE_NAME = 'test_image.jpg'
 # IMAGE_SAVE_NAME
@@ -30,9 +36,6 @@ PATH_TO_LABELS = '/PATH/TO/labelmap.pbtxt'
 # Path to image
 PATH_TO_IMAGE_DIR = '/PATH/TO/test_dir'
 PATH_TO_IMAGE = os.path.join(PATH_TO_IMAGE_DIR,IMAGE_NAME)
-
-# Number of classes the object detector can identify
-NUM_CLASSES = 11 ###
 
 # %%
 # Load the model
@@ -141,16 +144,17 @@ image_np_with_detections , csv_data = viz_utils.visualize_boxes_and_labels_on_im
     max_boxes_to_draw=200,
 # Edit_Settings
     line_thickness=3, ###
-    min_score_thresh=0.7, ###
+    min_score_thresh=0.5, ###
     agnostic_mode=False)
 
 # Save the image
 cv2.imwrite(os.path.join(PATH_TO_IMAGE_DIR,IMAGE_SAVE_NAME+".jpg"), image_np_with_detections) ###
 
 # Save the csv
-f = open(os.path.join(PATH_TO_IMAGE_DIR,IMAGE_SAVE_NAME+".csv"), 'w')
-f.write(csv_data)
-f.close()
+if SAVE_CSV_DATA :
+    f = open(os.path.join(PATH_TO_IMAGE_DIR,IMAGE_SAVE_NAME+".csv"), 'w')
+    f.write(csv_data)
+    f.close()
 
 print("done")
 

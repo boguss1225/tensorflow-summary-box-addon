@@ -1125,7 +1125,7 @@ def draw_summary_box_on_image(image,
 
     # Adjust fontsize
     if Auto_Fontsize:
-      Summary_FontSIZE = int(im_width * 0.02)
+      Summary_FontSIZE = int(im_width * 0.05)
 
     # background box
     #rectangleshape = [(im_width-250,(FontSIZE*kinds)),(im_width-3, 3)]
@@ -1346,7 +1346,6 @@ def visualize_boxes_and_labels_on_image_array(
                        scores)
   
   return image, csvdata
-  # return csvdata
 
 def getcsvdata(image,
                        class_count,
@@ -1359,13 +1358,17 @@ def getcsvdata(image,
   
   result = "class,score(%),xmin,ymin,xmax,ymax\n"
   boxes = []
-  numbofboxes = len(class_count)
+  numbofboxes = len(box_to_color_map.items())
+
+  # if no object detected
+  if numbofboxes==0 :
+    return result
+
   for box, color in box_to_color_map.items():
     boxes.append(box)
 
   for i in range(numbofboxes):
     score = int(100*scores[i])
-    # score = str(scores[i])
     ymin, xmin, ymax, xmax = boxes[i]
     result += category_index[classes[i]]['name']+","+str(score)+","+str(round(im_width*xmin))+","+str(round(im_height*ymin))+","+str(round(im_width*xmax))+","+str(round(im_height*ymax))+"\n"
 
